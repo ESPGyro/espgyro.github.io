@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic/holistic.js" crossorigin="anonymous"></script>
+  <script src="./js/app.js"></script>
+</head>
+
+<body>
+<div>
+    <h2 align='left' style='color:blue'>手勢控制四足獸 </h2>
+</div>
+  <button id="connect-to-serial">1 - 選擇連結的序列埠</button>
+  <label>需開啟 chrome://flags/#enable-experimental-web-platform-features</label>
+  <div class="container">
+    <video class="input_video"></video>
+    <canvas class="output_canvas" width="480px" height="240px"></canvas>
+  </div>
+</body>
+    <div class="col-sm-6">
+      <br>
+      <h4 id='state'></h4>
+      <div id='hint'></div>
+      <h4>Log:</h4>
+      <pre id='log'></pre>
+    </div>
+</html>
+
+<script type="module">
+    const serialLEDController = new SerialLEDController();
+    const connect = document.getElementById('connect-to-serial');
+ 
+    connect.addEventListener('pointerdown', () => {
+      serialLEDController.init();
+    });
+
+
+const videoElement = document.getElementsByClassName('input_video')[0];
+const canvasElement = document.getElementsByClassName('output_canvas')[0];
+const canvasCtx = canvasElement.getContext('2d');
+document.querySelector('#log').textContent = 'test\n';
+function onResults(results) {
+  canvasCtx.save(); 
+  if (results.rightHandLandmarks!=""&&typeof results.rightHandLandmarks!="undefined") {
+     // console.log(results.rightHandLandmarks);
+          if (results.rightHandLandmarks.length>10&&(results.rightHandLandmarks[0].y-results.rightHandLandmarks[9].y)>0.2) {
+	        
+             var thumbIsOpen = false;
+             var indexIsOpen = false;
+             var middelIsOpen = false;
+             var ringIsOpen = false;
+             var pinkyIsOpen = false;
+             var pseudoFixKeyPoint = results.rightHandLandmarks[2].x;
+                    if ((results.rightHandLandmarks[3].x > pseudoFixKeyPoint)&& ( results.rightHandLandmarks[4].x > pseudoFixKeyPoint)){
+                        thumbIsOpen = true;}
+
+                    pseudoFixKeyPoint = results.rightHandLandmarks[6].y;
+                    if ((results.rightHandLandmarks[7].y < pseudoFixKeyPoint)&& ( results.rightHandLandmarks[8].y < pseudoFixKeyPoint)){
+                        indexIsOpen = true;}
+
+                    pseudoFixKeyPoint = results.rightHandLandmarks[10].y;
+                    if ((results.rightHandLandmarks[11].y < pseudoFixKeyPoint)&& ( results.rightHandLandmarks[12].y < pseudoFixKeyPoint)){
+                        middelIsOpen = true;}
+
+                    pseudoFixKeyPoint = results.rightHandLandmarks[14].y;
+                    if ((results.rightHandLandmarks[15].y < pseudoFixKeyPoint)&& ( results.rightHandLandmarks[16].y < pseudoFixKeyPoint)){
+                        ringIsOpen = true;}
+
+                    pseudoFixKeyPoint = results.rightHandLandmarks[18].y;
+                    if ((results.rightHandLandmarks[19].y < pseudoFixKeyPoint)&& ( results.rightHandLandmarks[20].y < pseudoFixKeyPoint)){
+                        pinkyIsOpen = true;}
+          
+                
+                    if (thumbIsOpen && indexIsOpen && middelIsOpen && ringIsOpen && pinkyIsOpen){
+                        document.querySelector('#log').textContent = 'five\n';}
+                    else if (!thumbIsOpen && indexIsOpen && middelIsOpen && ringIsOpen && pinkyIsOpen){
+                        document.querySelector('#log').textContent = 'four\n';}
+                    else if (!thumbIsOpen && indexIsOpen && middelIsOpen && ringIsOpen && !pinkyIsOpen){
+                        document.querySelector('#log').textContent = 'three\n';}
+                    else if (!thumbIsOpen && indexIsOpen && middelIsOpen && !ringIsOpen && !pinkyIsOpen){
+                        document.querySelector('#log').textContent = 'two\n';
+						serialLEDController.write("B,2,30#"); }
+                    else if (!thumbIsOpen && indexIsOpen && !middelIsOpen && !ringIsOpen && !pinkyIsOpen){
+                        document.querySelector('#log').textContent = 'one\n';
+						serialLEDController.write("F,2,30#"); }
+
+                    else if (!thumbIsOpen && !indexIsOpen && !middelIsOpen && !ringIsOpen && !pinkyIsOpen){
+                        document.querySelector('#log').textContent = 'fist\n';
+						serialLEDController.write("M,130,50,50,130#"); }
+				    else {
+					document.querySelector('#log').textContent = 'error\n';
+						serialLEDController.write("M,130,50,50,130#"); }
+                   //     s.sendto(bytes("SRT1500120015001500#", "utf-8"), (network, PORT))
+             //       else if (!indexIsOpen && middelIsOpen && ringIsOpen && pinkyIsOpen){
+             //           document.querySelector('#log').textContent = 'ok\n';}
+     }
+  }
+  canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+  canvasCtx.drawImage(
+      results.image, 0, 0, canvasElement.width, canvasElement.height);
+//  drawConnectors(canvasCtx, results.poseLandmarks, POSE_CONNECTIONS,
+ //                {color: '#00FF00', lineWidth: 4});
+//  drawLandmarks(canvasCtx, results.poseLandmarks,
+ //               {color: '#FF0000', lineWidth: 2});
+//  drawConnectors(canvasCtx, results.faceLandmarks, FACEMESH_TESSELATION,
+ //                {color: '#C0C0C070', lineWidth: 1});
+ // drawConnectors(canvasCtx, results.leftHandLandmarks, HAND_CONNECTIONS,
+ //                {color: '#CC0000', lineWidth: 5});
+//  drawLandmarks(canvasCtx, results.leftHandLandmarks,
+//                {color: '#00FF00', lineWidth: 2});
+  drawConnectors(canvasCtx, results.rightHandLandmarks, HAND_CONNECTIONS,
+                 {color: '#00CC00', lineWidth: 5});
+  drawLandmarks(canvasCtx, results.rightHandLandmarks,
+                {color: '#FF0000', lineWidth: 2});
+  canvasCtx.restore();
+}
+
+const holistic = new Holistic({locateFile: (file) => {
+  return `https://cdn.jsdelivr.net/npm/@mediapipe/holistic/${file}`;
+}});
+holistic.setOptions({
+  modelComplexity: 1,
+  smoothLandmarks: true,
+  minDetectionConfidence: 0.5,
+  minTrackingConfidence: 0.5
+});
+holistic.onResults(onResults);
+
+const camera = new Camera(videoElement, {
+  onFrame: async () => {
+    await holistic.send({image: videoElement});
+  },
+  width: 480,
+  height: 240
+});
+camera.start();
+</script>
