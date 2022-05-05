@@ -8,7 +8,6 @@
 </div>
 <div class="input-group">
     <label for="model_input">2 - 填入 Model 路徑 </label>
-    <!--input type="text" id="model" value="https://teachablemachine.withgoogle.com/models/CaycvFgPg/"-->  
 	<input type="text" id="model" value="">
 </div>        
 <div class="input-group">
@@ -159,10 +158,9 @@
          }
     }
 
- // https://medium.com/dot-js/%E7%94%B1%E5%89%8D%E7%AB%AFrequest-%E7%9A%84%E5%B9%BE%E7%A8%AE%E6%96%B9%E6%B3%95-fbf8a0b4023a
 function send_ifttt() {
 　　// find elements
-const ifttt_request = "https://maker.ifttt.com/trigger/"+ifttt_event.value+"/with/key/"+ifttt_key.value+"?value1=100?value2=70";
+   const ifttt_request = "https://maker.ifttt.com/trigger/"+ifttt_event.value+"/with/key/"+ifttt_key.value+"?value1=100?value2=70";
    axios.get(ifttt_request)
      .then(function (response) {
    	console.log(response);
