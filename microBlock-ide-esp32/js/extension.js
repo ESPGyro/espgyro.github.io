@@ -1,6 +1,9 @@
-let extensionIndexURL = "https://api.github.com/repos/microBlock-IDE/microBlock-extension-index/contents/main.json";
-let extensionIndex = null;
+// let extensionIndexURL = "https://api.github.com/repos/microBlock-IDE/microBlock-extension-index/contents/main.json";
+let extensionIndexURL = "https://api.github.com/repos/ESPGyro/esp32_extension_url/contents/main-url.json";
 
+// let extensionIndexURL = "https://github.com/ESPGyro/esp32_extension_url/blob/main/main-url.json";
+let extensionIndex = null;
+console.log("11");
 let updateExtensionIndex = async () => {
     let extensionIndexFromAPI = await fetch(extensionIndexURL, { 
         redirect: "follow",
@@ -18,6 +21,40 @@ let updateExtensionIndex = async () => {
     return true;
 }
 
+// install all extensions 
+let all_install_flag = false
+if (all_install_flag) {
+let all_extension = "ESPGyro_esp32_extensions";
+let all_extensionLocalPath = `/extension/esp32_extensions`;
+let all_downloadRepo = downloadRepoFromGitHubStoreInFS("https://github.com/ESPGyro/esp32_extensions", all_extensionLocalPath, msg => NotifyE(msg));
+if (!all_downloadRepo) {
+    NotifyE("Download esp32_extensions fail");
+ //   return false;
+}
+
+let all_blocksFile = fs.walk(`${all_extensionLocalPath}/blocks`);
+for (const file of all_blocksFile) {
+    if (file.endsWith(".js")) {
+        let jsContent = fs.read(`${all_extensionLocalPath}/blocks/${file}`);
+        try {
+            eval(jsContent);
+        } catch (e) {
+            NotifyE("Script run error: " + e.toString());
+            console.error(e);
+        }
+    } else {
+        console.warn("Why file " + file + " in blocks ? support .js only so skip it");
+    }
+}
+
+updateBlockCategory();
+
+NotifyS(`Install ESP32_extension successful`);
+
+saveCodeToLocal();
+}
+
+
 let installExtension = async (extensionId) => {
     if (typeof extensionIndex[extensionId] === "undefined") {
         NotifyE("Not found " + extensionId + " in extension index");
@@ -25,7 +62,7 @@ let installExtension = async (extensionId) => {
     }
     let extension = extensionIndex[extensionId];
     let extensionLocalPath = `/extension/${extensionId}`;
-    
+    console.log(extension.github);
     let downloadRepo = await downloadRepoFromGitHubStoreInFS(extension.github, extensionLocalPath, msg => NotifyE(msg));
     if (!downloadRepo) {
         NotifyE("Download " + extension.name + " fail");
@@ -100,11 +137,14 @@ Blockly.Python.addUploadModule = (module) => {
 $("#open-extension-creator").click(() => {
     $(".add-extension-box").fadeIn();
 });
-
+console.log("22");
 let showExtensionList = (extensionList) => {
     $("#extension-dialog .extension-list").html('');
-
+    console.log("2a");
     let extensionInstalledList = fs.ls("/extension");
+ //   let extensionInstalledList = fs.ls("${rootPath}/extension");
+ //   extensionInstalledList = extensionInstalledList.concat(fs.ls(`${rootPath}/extension`));
+    console.log("eeee");
     if (isElectron) {
         extensionInstalledList = extensionInstalledList.concat(nodeFS.ls(sharedObj.extensionDir));
     }
@@ -161,7 +201,7 @@ let showExtensionList = (extensionList) => {
         }
     });
 }
-
+console.log("33");
 $(".extension-category-list > li").click(function() {
     let categoryName = $(this).text();
 

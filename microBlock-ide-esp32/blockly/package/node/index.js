@@ -13,7 +13,8 @@
 'use strict';
 
 // Include the EN Locale by default.
-Blockly.setLocale(En);
+// Blockly.setLocale(En);
+Blockly.setLocale(Zh);
 
 Blockly.Blocks = Blockly.Blocks || {};
 Object.keys(BlocklyBlocks).forEach(function (k) {

@@ -206,32 +206,11 @@ Blockly.defineBlocksWithJsonArray([
   },
   {
     "type": "random_seed",
-    "message0": "random seed",
+    "message0": "%{BKY_MATH_RANDOM_SEED}",
     "previousStatement": null,
     "nextStatement": null,
     "colour": "#34495E",
     "tooltip": "initialize the pseudo-random number generator",
     "helpUrl": ""
-  },
-  {
-    "type": "math_modulo",
-    "message0": "%{BKY_MATH_MODULO_TITLE}",
-    "args0": [
-      {
-        "type": "input_value",
-        "name": "DIVIDEND",
-        "check": "Number"
-      },
-      {
-        "type": "input_value",
-        "name": "DIVISOR",
-        "check": "Number"
-      }
-    ],
-    "inputsInline": true,
-    "output": "Number",
-    "colour": "#34495E",
-    "tooltip": "%{BKY_MATH_MODULO_TOOLTIP}",
-    "helpUrl": "%{BKY_MATH_MODULO_HELPURL}"
-  },
+  }
 ]);

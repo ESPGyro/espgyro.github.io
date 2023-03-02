@@ -1,7 +1,7 @@
 Blockly.defineBlocksWithJsonArray([
 {
   "type": "print",
-  "message0": "print %1 to terminal",
+  "message0": Blockly.Msg.print,
   "args0": [
     {
       "type": "input_value",
@@ -77,7 +77,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "rtc_set_time",
-  "message0": "RTC set date and time %1 Hour: %2 Min: %3 Second: %4 Day: %5 Month: %6 Year: %7",
+  "message0": Blockly.Msg.rtc_set_time,
   "args0": [
     {
       "type": "input_dummy"
@@ -128,7 +128,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "rtc_get_hour",
-  "message0": "RTC get Hour",
+  "message0": Blockly.Msg.rtc_get_hour,
   "inputsInline": false,
   "output": "Number",
   "colour": "#8E44AD",
@@ -137,7 +137,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "rtc_get_min",
-  "message0": "RTC get Min",
+  "message0": Blockly.Msg.rtc_get_min,
   "inputsInline": false,
   "output": "Number",
   "colour": "#8E44AD",
@@ -146,7 +146,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "rtc_get_sec",
-  "message0": "RTC get Second",
+  "message0": Blockly.Msg.rtc_get_sec,
   "inputsInline": false,
   "output": "Number",
   "colour": "#8E44AD",
@@ -155,7 +155,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "rtc_get_day",
-  "message0": "RTC get Day",
+  "message0": Blockly.Msg.rtc_get_day,
   "inputsInline": false,
   "output": "Number",
   "colour": "#8E44AD",
@@ -164,7 +164,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "rtc_get_month",
-  "message0": "RTC get Month",
+  "message0": Blockly.Msg.rtc_get_month,
   "inputsInline": false,
   "output": "Number",
   "colour": "#8E44AD",
@@ -173,7 +173,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "rtc_get_year",
-  "message0": "RTC get Year",
+  "message0": Blockly.Msg.rtc_get_year,
   "inputsInline": false,
   "output": "Number",
   "colour": "#8E44AD",
@@ -182,7 +182,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "rtc_get_microsecond",
-  "message0": "RTC get Microsecond",
+  "message0": Blockly.Msg.rtc_get_microsecond,
   "inputsInline": false,
   "output": "Number",
   "colour": "#8E44AD",
@@ -191,7 +191,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "rtc_sync_ntp",
-  "message0": "RTC sync from NTP",
+  "message0": Blockly.Msg.rtc_sync_ntp,
   "inputsInline": true,
   "previousStatement": null,
   "nextStatement": null,
@@ -201,7 +201,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "light_sleep",
-  "message0": "light sleep %1 seconds",
+  "message0": Blockly.Msg.light_sleep,
   "args0": [
     {
       "type": "input_value",
@@ -218,7 +218,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "deep_sleep",
-  "message0": "deep sleep %1 seconds",
+  "message0": Blockly.Msg.deep_sleep,
   "args0": [
     {
       "type": "input_value",
@@ -235,7 +235,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "is_woke_from_deep_sleep",
-  "message0": "is woke from deep sleep ?",
+  "message0": Blockly.Msg.is_woke_from_deep_sleep,
   "inputsInline": true,
   "output": [
     "Number",
@@ -247,7 +247,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "send_into_source",
-  "message0": "send %1 to dashboard via %2",
+  "message0": Blockly.Msg.send_into_source,
   "args0": [
     {
       "type": "input_value",
@@ -267,7 +267,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "board_reset",
-  "message0": "hard reset",
+  "message0":Blockly.Msg.board_reset,
   "inputsInline": true,
   "previousStatement": null,
   "nextStatement": null,
@@ -277,7 +277,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "run_in_background",
-  "message0": "run in background %1 %2",
+  "message0": Blockly.Msg.run_in_background,
   "args0": [
     {
       "type": "input_dummy"

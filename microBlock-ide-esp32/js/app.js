@@ -50,7 +50,10 @@ let updateBlockCategory = async () => {
 
     // Extenstion
     extenstionTree = [];
+    console.log("4441");
     for (const extensionId of fs.ls("/extension")) {
+        console.log(extensionId)
+
         let extension = fs.read(`/extension/${extensionId}/extension.js`);
         extension = eval(extension);
         extenstionTree.push(extension);

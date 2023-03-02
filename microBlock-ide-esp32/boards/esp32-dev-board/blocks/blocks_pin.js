@@ -1,7 +1,20 @@
 Blockly.defineBlocksWithJsonArray([
 {
+  "type": "comment_input",
+  "message0": "備註欄: %1",
+  "args0": [
+    {
+      "type": "field_multilinetext",
+      "name": "FIELDNAME",
+      "text": "請填入備註",
+      "spellcheck": false
+    }
+  ],
+ "colour": "#1ABC9C"
+},
+{
   "type": "pin_digital_write",
-  "message0": "digital write %1 to pin %2",
+  "message0":Blockly.Msg.pin_digital_write ,
   "args0": [
     {
       "type": "input_value",
@@ -29,7 +42,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "pin_digital_read",
-  "message0": "digital read pin %1",
+  "message0": Blockly.Msg.pin_digital_read,
   "args0": [
     {
       "type": "input_value",
@@ -38,6 +51,11 @@ Blockly.defineBlocksWithJsonArray([
         "Boolean",
         "Number"
       ]
+    },
+     {
+      "type": "field_checkbox",
+      "name": "pull_up",
+      "checked": true
     }
   ],
   "output": [
@@ -51,14 +69,36 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "pin_touch_read",
-  "message0": "touch read pin %1",
+  "message0": Blockly.Msg.pin_touch_read,
   "args0": [
-    {
-      "type": "input_value",
+     {
+      "type": "field_dropdown",
       "name": "pin",
+      "options": [
+         [
+          "4",
+          "4"
+        ],
+         [
+          "13",
+          "13"
+        ],
+        [
+          "15",
+          "15"
+        ],
+         [
+          "32",
+          "32"
+        ],
+        [
+          "33",
+          "33"
+        ]
+      ],
       "check": [
-        "Boolean",
-        "Number"
+      "Boolean",
+      "Number"
       ]
     }
   ],
@@ -70,11 +110,33 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "pin_analog_read",
-  "message0": "analog read pin %1",
+  "message0": Blockly.Msg.pin_analog_read,
   "args0": [
     {
-      "type": "input_value",
+      "type": "field_dropdown",
       "name": "pin",
+      "options": [
+         [
+          "32",
+          "32"
+        ],
+         [
+          "33",
+          "33"
+        ],
+        [
+          "34",
+          "34"
+        ],
+         [
+          "36",
+          "36"
+        ],
+        [
+          "39",
+          "39"
+        ]
+      ],
       "check": [
         "Boolean",
         "Number"
@@ -89,7 +151,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "pin_analog_write",
-  "message0": "PWM write %1 to pin %2",
+  "message0": Blockly.Msg.pin_analog_write,
   "args0": [
     {
       "type": "input_value",

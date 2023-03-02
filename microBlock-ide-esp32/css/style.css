@@ -124,15 +124,6 @@ ul.switch-mode > li.active {
     font-size: 12px;
 }
 
-ul.switch-mode.small {
-    padding: 4px;
-}
-
-ul.switch-mode.small > li {
-    padding: 6px 10px;
-    font-size: 14px;
-}
-
 ul.top-bar-button {
     padding: 0;
     margin: 0;
@@ -305,21 +296,6 @@ ul.switch-mode > li:last-child {
     color: #FFF;
 }
 
-.page > .main > footer > .control-box > ul.button-list > li > button > div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 500px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .page > .main > footer > .control-box > ul.button-list > li > input {
     margin-right: 14px;
     padding: 10px 14px;
@@ -343,7 +319,7 @@ ul.switch-mode > li:last-child {
     background-color: #2E4053;
 }
 
-.page > .main > footer > .control-box > ul.button-list > li > button.loading i {
+.page > .main > footer > .control-box > ul.button-list > li > button.loading > i {
     animation: goOutToTop 1.6s;
     transform: translateY(-300%);
 }
@@ -459,13 +435,8 @@ ul.switch-mode > li:last-child {
     display: none;
 }
 
-#terminal-h-resize:hover,
-#terminal-h-resize.active {
+#terminal-h-resize:hover {
     opacity: 1;
-}
-
-#terminal-h-resize.active {
-    width: 30px;
 }
 
 #terminal > header {
@@ -545,25 +516,6 @@ ul.switch-mode > li:last-child {
 
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(0 0 0 / 39%);
-}
-
-@media screen and (max-width: 1200px) {
-    .dialog {
-        top: 5%;
-        left: 5%;
-        width: 90%;
-        height: 90%;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .dialog {
-        top: 0%;
-        left: 0%;
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-    }
 }
 
 .dialog::before {
@@ -812,40 +764,6 @@ ul.switch-mode > li:last-child {
     list-style: none;
     padding: 10px;
     padding-top: 0;
-}
-
-@media screen and (max-width: 1200px) {
-    .extension-category-list { 
-        flex-basis: 160px;
-    }
-
-    .extension-list > li {
-        width: calc(100% / 3);
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .extension-category-list { 
-        flex-basis: 140px;
-    }
-
-    .extension-category-list > li { 
-        font-size: 12px;
-    }
-    
-    .extension-list > li {
-        width: 50%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .extension-category-list {
-        display: none;
-    }
-
-    .extension-list > li {
-        width: 100%;
-    }
 }
 
 .extension-box {
@@ -1362,43 +1280,11 @@ ul.switch-mode > li:last-child {
     width: 20%;
 }
 
-@media screen and (max-width: 1200px) {
-    #hardware-select > ul > li {
-        width: 25%;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    #hardware-select > ul > li {
-        width: calc(100% / 3);
-    }
-}
-
-#hardware-select > ul > li.show-when-click-see-more {
-    display: none;
-}
-
-#hardware-select > #board-see-more-btn {
-    width: 100%;
-    color: #1C2833;
-    background-color: #E5E7E9;
-}
-
-#hardware-select > #board-see-more-btn:hover {
-    background-color: #D7DBDD;
-}
-
-.box-level-select {
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 0 !important;
-}
-
 #level-select > ul > li img {
     width: 100px;
 }
 
-#firmware-upgrade-dialog {
+#firmware-upgrade-dialog  {
     background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
     width: 100%;
@@ -1413,23 +1299,11 @@ ul.switch-mode > li:last-child {
     display: none;
 }
 
-#firmware-upgrade-dialog.fullScreen {
-    display: block !important;
-    padding: 0;
-}
-
 #firmware-upgrade-dialog  > section {
     background-color: #FFF;
     max-width: 580px;
     border-radius: 4px;
     margin: auto;
-}
-
-#firmware-upgrade-dialog.fullScreen  > section {
-    max-width: 100%;
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0;
 }
 
 #firmware-upgrade-dialog  > section > header {
@@ -1450,10 +1324,6 @@ ul.switch-mode > li:last-child {
     font-size: 14px;
     color: #B2BABB;
     padding: 10px;
-}
-
-#firmware-upgrade-dialog.fullScreen  > section > header > .close-btn {
-    display: none;
 }
 
 #firmware-upgrade-dialog  > section > header > .close-btn:hover {
@@ -1521,15 +1391,6 @@ ul.switch-mode > li:last-child {
     background-color: #D4AC0D;
 }
 
-#firmware-upgrade-dialog  > section > section > article button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-#firmware-upgrade-dialog  > section > section > article button:disabled:hover {
-    background-color: #F1C40F;
-}
-
 #firmware-upgrade-dialog  > section > section > article button#continue-upload {
     background-color: #FFFFFF;
     color: #000;
@@ -1550,13 +1411,6 @@ ul.switch-mode > li:last-child {
 
 #firmware-upgrade-dialog  > section > section > article.doing > .icon.loading {
     animation: objectMoveLoading 3s infinite;
-}
-
-#firmware-upgrade-dialog .note-for-rp2 {
-    margin-top: 15px;
-    color: #FF0000;
-    font-size: 14px;
-    font-weight: bold;
 }
 
 @keyframes objectMoveLoading {
@@ -1804,7 +1658,12 @@ ul.switch-mode > li:last-child {
     font-weight: bold;
 }
 
-/* Blockly hardover */
+
+
+
+
+
+
 .blocklyToolboxDiv {
     background-color: #FDFEFE !important;
     box-shadow: 0 0 10px rgb(0 0 0 / 39%);
@@ -1837,7 +1696,7 @@ ul.switch-mode > li:last-child {
 }
 
 .blocklyTreeRow > .blocklyTreeIcon > img {
-    width: 60%;
+    width: 50%; /* 60%;  */
 }
 
 .blocklyTreeRow > .blocklyTreeLabel {
@@ -1847,7 +1706,7 @@ ul.switch-mode > li:last-child {
     padding-bottom: 10px;
     padding-top: 0;
     color: #1C2833 !important;
-    font-size: 14px;
+    font-size: 14px;  /* 12px;  */
 }
 
 .blocklyTreeSelected .blocklyTreeLabel {
@@ -1862,32 +1721,33 @@ ul.switch-mode > li:last-child {
     stroke-width: 0
 }
 
-/* Scrollbar styles */
+/* width */
 ::-webkit-scrollbar {
     width: 10px;
 }
   
+/* Track */
 ::-webkit-scrollbar-track {
     background-color: #FFF;
 }
    
+/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #D0D3D4; 
     border-radius: 10px;
     margin: 0 2px;
 }
   
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #B3B6B7; 
 }
-/*
+
 .blocklyCheckedBox {
     fill: #FF0000 !important;
     fill-opacity: 1 !important;
 }
-*/
 
-/* Notify hardover */
 .notiflix-confirm input {
     width: 100%;
     border-radius: 100px;

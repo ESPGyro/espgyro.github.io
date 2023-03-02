@@ -154,7 +154,86 @@ Blockly.Blocks.text_replace={init:function(){this.jsonInit({message0:Blockly.Msg
 Blockly.Blocks.text_reverse={init:function(){this.jsonInit({message0:Blockly.Msg.TEXT_REVERSE_MESSAGE0,args0:[{type:"input_value",name:"TEXT",check:"String"}],output:"String",inputsInline:!0,style:"text_blocks",tooltip:Blockly.Msg.TEXT_REVERSE_TOOLTIP,helpUrl:Blockly.Msg.TEXT_REVERSE_HELPURL})}};
 Blockly.Constants.Text.QUOTE_IMAGE_MIXIN={QUOTE_IMAGE_LEFT_DATAURI:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAn0lEQVQI1z3OMa5BURSF4f/cQhAKjUQhuQmFNwGJEUi0RKN5rU7FHKhpjEH3TEMtkdBSCY1EIv8r7nFX9e29V7EBAOvu7RPjwmWGH/VuF8CyN9/OAdvqIXYLvtRaNjx9mMTDyo+NjAN1HNcl9ZQ5oQMM3dgDUqDo1l8DzvwmtZN7mnD+PkmLa+4mhrxVA9fRowBWmVBhFy5gYEjKMfz9AylsaRRgGzvZAAAAAElFTkSuQmCC",QUOTE_IMAGE_RIGHT_DATAURI:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAqUlEQVQI1z3KvUpCcRiA8ef9E4JNHhI0aFEacm1o0BsI0Slx8wa8gLauoDnoBhq7DcfWhggONDmJJgqCPA7neJ7p934EOOKOnM8Q7PDElo/4x4lFb2DmuUjcUzS3URnGib9qaPNbuXvBO3sGPHJDRG6fGVdMSeWDP2q99FQdFrz26Gu5Tq7dFMzUvbXy8KXeAj57cOklgA+u1B5AoslLtGIHQMaCVnwDnADZIFIrXsoXrgAAAABJRU5ErkJggg==",
 QUOTE_IMAGE_WIDTH:12,QUOTE_IMAGE_HEIGHT:12,quoteField_:function(a){for(var b=0,c;c=this.inputList[b];b++)for(var d=0,e;e=c.fieldRow[d];d++)if(a==e.name){c.insertFieldAt(d,this.newQuote_(!0));c.insertFieldAt(d+2,this.newQuote_(!1));return}console.warn('field named "'+a+'" not found in '+this.toDevString())},newQuote_:function(a){a=this.RTL?!a:a;return new Blockly.FieldImage(a?this.QUOTE_IMAGE_LEFT_DATAURI:this.QUOTE_IMAGE_RIGHT_DATAURI,this.QUOTE_IMAGE_WIDTH,this.QUOTE_IMAGE_HEIGHT,a?"\u201c":"\u201d")}};
-Blockly.Constants.Text.TEXT_QUOTES_EXTENSION=function(){this.mixin(Blockly.Constants.Text.QUOTE_IMAGE_MIXIN);this.quoteField_("TEXT")};
+Blockly.Constants.Text.TEXT_QUOTES_EXTENSION=function(){this.mixin(Blockly.Constants.Text.QUOTE_IMAGE_MIXIN);this.quoteField_("TEXT")};Blockly.Blocks.dict_create_with = {
+	    init: function() {
+	        this.setHelpUrl();
+	        this.setColour(20);
+	        this.itemCount_ = 3;
+	        this.updateShape_();
+	        this.setOutput(!0, "Dict");
+	        this.setMutator(new Blockly.Mutator(["dict_create_with_item"]));
+	        this.setTooltip("")
+	    },
+	    mutationToDom: function() {
+	        var a = document.createElement("mutation");
+	        a.setAttribute("items", this.itemCount_);
+	        return a
+	    },
+	    domToMutation: function(a) {
+	        this.itemCount_ = parseInt(a.getAttribute("items"), 10);
+	        this.updateShape_()
+	    },
+	    decompose: function(a) {
+	        var b = a.newBlock("dict_create_with_container");
+	        b.initSvg();
+	        for (var c = b.getInput("STACK").connection, d = 0; d < this.itemCount_; d++) {
+	            var e = a.newBlock("dict_create_with_item");
+	            e.initSvg();
+	            c.connect(e.previousConnection);
+	            c = e.nextConnection
+	        }
+	        return b
+	    },
+	    compose: function(a) {
+	        var b = a.getInputTargetBlock("STACK");
+	        for (a = []; b;) a.push(b.valueConnection_),
+	        b = b.nextConnection && b.nextConnection.targetBlock();
+	        for (b = 0; b < this.itemCount_; b++) {
+	            var c = this.getInput("ADD" + b).connection.targetConnection;
+	            c && -1 == a.indexOf(c) && c.disconnect()
+	        }
+	        this.itemCount_ = a.length;
+	        this.updateShape_();
+	        for (b = 0; b < this.itemCount_; b++) Blockly.Mutator.reconnect(a[b], this, "ADD" + b)
+	    },
+	    saveConnections: function(a) {
+	        a = a.getInputTargetBlock("STACK");
+	        for (var b = 0; a;) {
+	            var c = this.getInput("ADD" + b);
+	            a.valueConnection_ = c && c.connection.targetConnection;
+	            b++;
+	            a = a.nextConnection && a.nextConnection.targetBlock()
+	        }
+	    },
+	    updateShape_: function() {
+	        this.itemCount_ && this.getInput("EMPTY") ? this.removeInput("EMPTY") : this.itemCount_ || this.getInput("EMPTY") || this.appendDummyInput("EMPTY").appendField(Blockly.Msg.DICT_CREATE_EMPTY_TITLE);
+	        for (var a = 0; a < this.itemCount_; a++) if (!this.getInput("ADD" + a)) {
+	            var b = this.appendValueInput("ADD" + a);
+	            0 == a && b.appendField("使用這些名稱/值建立字典")
+	        }
+	        for (; this.getInput("ADD" + a);) this.removeInput("ADD" + a),
+	        a++
+	    }
+};
+Blockly.Blocks.dict_create_with_item = {
+	    init: function() {
+	        this.setColour(20);
+	        this.appendDummyInput().appendField("item");
+	        this.setPreviousStatement(!0);
+	        this.setNextStatement(!0);
+	        this.setTooltip(Blockly.Msg.DICT_CREATE_WITH_ITEM_TOOLTIP);
+	        this.contextMenu = !1
+	    }
+};
+Blockly.Blocks.dict_create_with_container = {
+	    init: function() {
+	        this.setColour(20);
+	        this.appendDummyInput().appendField("使用這些名稱/值建立字典");
+	        this.appendStatementInput("STACK");
+	        this.setTooltip(Blockly.Msg.DICT_CREATE_WITH_CONTAINER_TOOLTIP);
+	        this.contextMenu = !1
+	    }
+};
 Blockly.Constants.Text.TEXT_JOIN_MUTATOR_MIXIN={mutationToDom:function(){var a=Blockly.utils.xml.createElement("mutation");a.setAttribute("items",this.itemCount_);return a},domToMutation:function(a){this.itemCount_=parseInt(a.getAttribute("items"),10);this.updateShape_()},decompose:function(a){var b=a.newBlock("text_create_join_container");b.initSvg();for(var c=b.getInput("STACK").connection,d=0;d<this.itemCount_;d++){var e=a.newBlock("text_create_join_item");e.initSvg();c.connect(e.previousConnection);
 c=e.nextConnection}return b},compose:function(a){var b=a.getInputTargetBlock("STACK");for(a=[];b;)a.push(b.valueConnection_),b=b.nextConnection&&b.nextConnection.targetBlock();for(b=0;b<this.itemCount_;b++){var c=this.getInput("ADD"+b).connection.targetConnection;c&&-1==a.indexOf(c)&&c.disconnect()}this.itemCount_=a.length;this.updateShape_();for(b=0;b<this.itemCount_;b++)Blockly.Mutator.reconnect(a[b],this,"ADD"+b)},saveConnections:function(a){a=a.getInputTargetBlock("STACK");for(var b=0;a;){var c=
 this.getInput("ADD"+b);a.valueConnection_=c&&c.connection.targetConnection;b++;a=a.nextConnection&&a.nextConnection.targetBlock()}},updateShape_:function(){this.itemCount_&&this.getInput("EMPTY")?this.removeInput("EMPTY"):this.itemCount_||this.getInput("EMPTY")||this.appendDummyInput("EMPTY").appendField(this.newQuote_(!0)).appendField(this.newQuote_(!1));for(var a=0;a<this.itemCount_;a++)if(!this.getInput("ADD"+a)){var b=this.appendValueInput("ADD"+a).setAlign(Blockly.ALIGN_RIGHT);0==a&&b.appendField(Blockly.Msg.TEXT_JOIN_TITLE_CREATEWITH)}for(;this.getInput("ADD"+

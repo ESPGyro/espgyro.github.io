@@ -1,7 +1,7 @@
 Blockly.defineBlocksWithJsonArray([
 {
   "type": "controls_wait",
-  "message0": "wait %1 seconds",
+  "message0": "%{BKY_CONTROLS_WAIT_TIME}",
   "args0": [
     {
       "type": "input_value",
@@ -61,7 +61,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "controls_wait_until",
-  "message0": "wait until %1",
+  "message0":"%{BKY_CONTROLS_WAIT_UNTIL}",
   "args0": [
     {
       "type": "input_value",
@@ -81,7 +81,7 @@ Blockly.defineBlocksWithJsonArray([
 },
 {
   "type": "controls_forever",
-  "message0": "forever %1 %2",
+  "message0":"%{BKY_CONTROLS_FOREVER}",
   "args0": [
     {
       "type": "input_dummy"
