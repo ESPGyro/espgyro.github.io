@@ -1,6 +1,6 @@
 # microBlock IDE
 
-This is a fork version for custom ESP-Gyro shield. 
+This is a fork version for custom ESP-Gyro shield and add traditional Chinese language.
 
 Thanks to the original author for open-sourcing this project.  
 
