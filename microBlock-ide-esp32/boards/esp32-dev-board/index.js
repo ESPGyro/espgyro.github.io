@@ -1031,7 +1031,54 @@ addBoard({
 
        
     ],
- }
+ },
+ ////////////////////////////////////////////////////////////
+{
+    name: Blockly.Msg.motor, // Category Name
+    description: "Motor for L9110S",
+    author: "microBlock",
+    category: "Sensors",
+    version: "1.0.0",
+    icon: "/static/icon.png", // Category icon
+    color: "#004098", // Category color (recommend some blocks color)
+    blocks: [ // Blocks in Category
+        
+                "motor_left_set",
+   	"motor_right_set",
+                {
+                            xml: `
+                                <block type="motor_wheel">
+                                    <value name="speed1">
+                                        <shadow type="math_number">
+                                            <field name="NUM">100</field>
+                                        </shadow>
+                                    </value>
+		    <value name="speed2">
+                                        <shadow type="math_number">
+                                            <field name="NUM">100</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+                },
+    	
+    "motor_move",	
+	"motor_stop",
+    "math_number",
+	{
+                            xml: `
+                                <block type="controls_wait">
+                                    <value name="time">
+                                        <shadow type="math_number">
+                                            <field name="NUM">1</field>
+                                        </shadow>
+                                    </value>
+                                </block>
+                            `
+        }
+    ]
+},
+/////////////////////////////////////////////////////////////
 
 
 
