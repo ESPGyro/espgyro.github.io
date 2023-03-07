@@ -1039,7 +1039,7 @@ addBoard({
     author: "microBlock",
     category: "Sensors",
     version: "1.0.0",
-    icon: "/static/icon.png", // Category icon
+    icon: "/image/icon/icon_l9110.png", // Category icon
     color: "#004098", // Category color (recommend some blocks color)
     blocks: [ // Blocks in Category
         
