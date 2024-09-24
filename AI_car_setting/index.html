@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Car by Mason</title>
+    <style>
+        #log {
+            width: 100%;
+            height: 200px;
+            overflow-y: auto;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>設定小車參數</h1>
+    <form id="paramForm">
+        <button type="button" id="connectButton">先連線至 AI 小車</button>
+        <button type="button" id="sendButton">儲存設定值至小車上</button><br><br>
+        <label for="param1">設定小車編號 (1 - 20)</label>
+        <input type="text" id="param1" name="param1"><br><br>
+        <label for="param2">設定輪子直徑 (預設 60.5mm)</label>
+        <input type="text" id="param2" name="param2"><br><br>
+        <label for="param3">設定輪子間距 (預設 100.0mm)</label>
+        <input type="text" id="param3" name="param3"><br><br>
+        <label for="param4">設定地圖間距 (預設 140.0mm)</label>
+        <input type="text" id="param4" name="param4"><br><br>
+    </form>
+
+    <!-- 日誌視窗 -->
+    <div id="log"></div>
+
+    <script>
+        let port;
+        let writer;
+
+        // 添加日誌信息的函數
+        function addLogMessage(message) {
+            const logWindow = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            logWindow.innerHTML += `[${timestamp}] ${message}<br>`;
+            logWindow.scrollTop = logWindow.scrollHeight; // 自動滾動到最底部
+        }
+
+        document.getElementById('connectButton').addEventListener('click', async () => {
+            try {
+                // 要求使用者選擇序列埠並連接
+                port = await navigator.serial.requestPort();
+                await port.open({ baudRate: 115200 });
+
+                // 設定 Writer 寫入數據到小車
+                const textEncoder = new TextEncoderStream();
+                const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
+                writer = textEncoder.writable.getWriter();
+
+                addLogMessage("成功連接至 AI 小車");
+            } catch (error) {
+                addLogMessage("連接 AI 小車時發生錯誤: " + error);
+            }
+        });
+
+        document.getElementById('sendButton').addEventListener('click', async () => {
+            if (!writer) {
+                addLogMessage("請先連接到 AI 小車！");
+                return;
+            }
+
+            // 獲取表單數據
+            const param1 = document.getElementById('param1').value;
+            const param2 = document.getElementById('param2').value;
+            const param3 = document.getElementById('param3').value;
+            const param4 = document.getElementById('param4').value;
+
+            const dataToSend = `mcar,${param1},${param2},${param3},${param4}\n`;  // 用逗號分隔數據並加上換行符
+
+            try {
+                // 將數據發送到 AI Car
+                await writer.write(dataToSend);
+                addLogMessage("數據已發送至 AI 小車: " + dataToSend);
+            } catch (error) {
+                addLogMessage("發送數據時發生錯誤: " + error);
+            }
+        });
+    </script>
+</body>
+</html>
