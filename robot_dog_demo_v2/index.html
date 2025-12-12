@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<!-- saved from url=(0132)blob:https://17ksntc99cdpujv2zogeh8igqfq89f5ztfi2v0ot6radk55h3p-h839267052.scf.usercontent.goog/523ab983-cfae-4e2e-8738-cd0099b84c6a -->
+<html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script class="injected-ffc2e83d85">
+(function(){'use strict';function q(b){var c=0;return function(){return c<b.length?{done:!1,value:b[c++]}:{done:!0}}}function t(b){var c=typeof Symbol!="undefined"&&Symbol.iterator&&b[Symbol.iterator];if(c)return c.call(b);if(typeof b.length=="number")return{next:q(b)};throw Error(String(b)+" is not an iterable or ArrayLike");}var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,c,g){if(b==Array.prototype||b==Object.prototype)return b;b[c]=g.value;return b};
+function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var c=0;c<b.length;++c){var g=b[c];if(g&&g.Math==Math)return g}throw Error("Cannot find global object");}var w=v(this);function x(b,c){if(c)a:{var g=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var l=b[h];if(!(l in g))break a;g=g[l]}b=b[b.length-1];h=g[b];c=c(h);c!=h&&c!=null&&u(g,b,{configurable:!0,writable:!0,value:c})}}
+function y(){this.j=!1;this.g=null;this.u=void 0;this.h=1;this.v=this.l=0;this.i=null}function z(b){if(b.j)throw new TypeError("Generator is already running");b.j=!0}y.prototype.o=function(b){this.u=b};function A(b,c){b.i={I:c,J:!0};b.h=b.l||b.v}y.prototype.return=function(b){this.i={return:b};this.h=this.v};function B(b){this.g=new y;this.h=b}function E(b,c){z(b.g);var g=b.g.g;if(g)return F(b,"return"in g?g["return"]:function(h){return{value:h,done:!0}},c,b.g.return);b.g.return(c);return G(b)}
+function F(b,c,g,h){try{var l=c.call(b.g.g,g);if(!(l instanceof Object))throw new TypeError("Iterator result "+l+" is not an object");if(!l.done)return b.g.j=!1,l;var m=l.value}catch(f){return b.g.g=null,A(b.g,f),G(b)}b.g.g=null;h.call(b.g,m);return G(b)}function G(b){for(;b.g.h;)try{var c=b.h(b.g);if(c)return b.g.j=!1,{value:c.value,done:!1}}catch(g){b.g.u=void 0,A(b.g,g)}b.g.j=!1;if(b.g.i){c=b.g.i;b.g.i=null;if(c.J)throw c.I;return{value:c.return,done:!0}}return{value:void 0,done:!0}}
+function H(b){this.next=function(c){z(b.g);b.g.g?c=F(b,b.g.g.next,c,b.g.o):(b.g.o(c),c=G(b));return c};this.throw=function(c){z(b.g);b.g.g?c=F(b,b.g.g["throw"],c,b.g.o):(A(b.g,c),c=G(b));return c};this.return=function(c){return E(b,c)};this[Symbol.iterator]=function(){return this}}function I(b){function c(h){return b.next(h)}function g(h){return b.throw(h)}return new Promise(function(h,l){function m(f){f.done?h(f.value):Promise.resolve(f.value).then(c,g).then(m,l)}m(b.next())})}
+x("Symbol",function(b){function c(m){if(this instanceof c)throw new TypeError("Symbol is not a constructor");return new g(h+(m||"")+"_"+l++,m)}function g(m,f){this.g=m;u(this,"description",{configurable:!0,writable:!0,value:f})}if(b)return b;g.prototype.toString=function(){return this.g};var h="jscomp_symbol_"+(Math.random()*1E9>>>0)+"_",l=0;return c});
+x("Symbol.iterator",function(b){if(b)return b;b=Symbol("Symbol.iterator");u(Array.prototype,b,{configurable:!0,writable:!0,value:function(){return J(q(this))}});return b});function J(b){b={next:b};b[Symbol.iterator]=function(){return this};return b}
+x("Promise",function(b){function c(f){this.h=0;this.i=void 0;this.g=[];this.u=!1;var a=this.j();try{f(a.resolve,a.reject)}catch(d){a.reject(d)}}function g(){this.g=null}function h(f){return f instanceof c?f:new c(function(a){a(f)})}if(b)return b;g.prototype.h=function(f){if(this.g==null){this.g=[];var a=this;this.i(function(){a.l()})}this.g.push(f)};var l=w.setTimeout;g.prototype.i=function(f){l(f,0)};g.prototype.l=function(){for(;this.g&&this.g.length;){var f=this.g;this.g=[];for(var a=0;a<f.length;++a){var d=
+f[a];f[a]=null;try{d()}catch(e){this.j(e)}}}this.g=null};g.prototype.j=function(f){this.i(function(){throw f;})};c.prototype.j=function(){function f(e){return function(k){d||(d=!0,e.call(a,k))}}var a=this,d=!1;return{resolve:f(this.D),reject:f(this.l)}};c.prototype.D=function(f){if(f===this)this.l(new TypeError("A Promise cannot resolve to itself"));else if(f instanceof c)this.G(f);else{a:switch(typeof f){case "object":var a=f!=null;break a;case "function":a=!0;break a;default:a=!1}a?this.C(f):this.o(f)}};
+c.prototype.C=function(f){var a=void 0;try{a=f.then}catch(d){this.l(d);return}typeof a=="function"?this.H(a,f):this.o(f)};c.prototype.l=function(f){this.v(2,f)};c.prototype.o=function(f){this.v(1,f)};c.prototype.v=function(f,a){if(this.h!=0)throw Error("Cannot settle("+f+", "+a+"): Promise already settled in state"+this.h);this.h=f;this.i=a;this.h===2&&this.F();this.K()};c.prototype.F=function(){var f=this;l(function(){if(f.B()){var a=w.console;typeof a!=="undefined"&&a.error(f.i)}},1)};c.prototype.B=
+function(){if(this.u)return!1;var f=w.CustomEvent,a=w.Event,d=w.dispatchEvent;if(typeof d==="undefined")return!0;typeof f==="function"?f=new f("unhandledrejection",{cancelable:!0}):typeof a==="function"?f=new a("unhandledrejection",{cancelable:!0}):(f=w.document.createEvent("CustomEvent"),f.initCustomEvent("unhandledrejection",!1,!0,f));f.promise=this;f.reason=this.i;return d(f)};c.prototype.K=function(){if(this.g!=null){for(var f=0;f<this.g.length;++f)m.h(this.g[f]);this.g=null}};var m=new g;c.prototype.G=
+function(f){var a=this.j();f.A(a.resolve,a.reject)};c.prototype.H=function(f,a){var d=this.j();try{f.call(a,d.resolve,d.reject)}catch(e){d.reject(e)}};c.prototype.then=function(f,a){function d(n,r){return typeof n=="function"?function(C){try{e(n(C))}catch(D){k(D)}}:r}var e,k,p=new c(function(n,r){e=n;k=r});this.A(d(f,e),d(a,k));return p};c.prototype.catch=function(f){return this.then(void 0,f)};c.prototype.A=function(f,a){function d(){switch(e.h){case 1:f(e.i);break;case 2:a(e.i);break;default:throw Error("Unexpected state: "+
+e.h);}}var e=this;this.g==null?m.h(d):this.g.push(d);this.u=!0};c.resolve=h;c.reject=function(f){return new c(function(a,d){d(f)})};c.race=function(f){return new c(function(a,d){for(var e=t(f),k=e.next();!k.done;k=e.next())h(k.value).A(a,d)})};c.all=function(f){var a=t(f),d=a.next();return d.done?h([]):new c(function(e,k){function p(C){return function(D){n[C]=D;r--;r==0&&e(n)}}var n=[],r=0;do n.push(void 0),r++,h(d.value).A(p(n.length-1),k),d=a.next();while(!d.done)})};return c});
+function K(b,c){return Object.prototype.hasOwnProperty.call(b,c)}x("Object.is",function(b){return b?b:function(c,g){return c===g?c!==0||1/c===1/g:c!==c&&g!==g}});x("Array.prototype.includes",function(b){return b?b:function(c,g){var h=this;h instanceof String&&(h=String(h));var l=h.length;g=g||0;for(g<0&&(g=Math.max(g+l,0));g<l;g++){var m=h[g];if(m===c||Object.is(m,c))return!0}return!1}});
+x("String.prototype.includes",function(b){return b?b:function(c,g){if(this==null)throw new TypeError("The 'this' value for String.prototype.includes must not be null or undefined");if(c instanceof RegExp)throw new TypeError("First argument to String.prototype.includes must not be a regular expression");return this.indexOf(c,g||0)!==-1}});
+x("WeakMap",function(b){function c(d){this.g=(a+=Math.random()+1).toString();if(d){d=t(d);for(var e;!(e=d.next()).done;)e=e.value,this.set(e[0],e[1])}}function g(){}function h(d){var e=typeof d;return e==="object"&&d!==null||e==="function"}function l(d){if(!K(d,f)){var e=new g;u(d,f,{value:e})}}function m(d){var e=Object[d];e&&(Object[d]=function(k){if(k instanceof g)return k;Object.isExtensible(k)&&l(k);return e(k)})}if(function(){if(!b||!Object.seal)return!1;try{var d=Object.seal({}),e=Object.seal({}),
+k=new b([[d,2],[e,3]]);if(k.get(d)!=2||k.get(e)!=3)return!1;k.delete(d);k.set(e,4);return!k.has(d)&&k.get(e)==4}catch(p){return!1}}())return b;var f="$jscomp_hidden_"+Math.random();m("freeze");m("preventExtensions");m("seal");var a=0;c.prototype.set=function(d,e){if(!h(d))throw Error("Invalid WeakMap key");l(d);if(!K(d,f))throw Error("WeakMap key fail: "+d);d[f][this.g]=e;return this};c.prototype.get=function(d){return h(d)&&K(d,f)?d[f][this.g]:void 0};c.prototype.has=function(d){return h(d)&&K(d,
+f)&&K(d[f],this.g)};c.prototype.delete=function(d){return h(d)&&K(d,f)&&K(d[f],this.g)?delete d[f][this.g]:!1};return c});
+x("Map",function(b){function c(){var a={};return a.m=a.next=a.head=a}function g(a,d){var e=a[1];return J(function(){if(e){for(;e.head!=a[1];)e=e.m;for(;e.next!=e.head;)return e=e.next,{done:!1,value:d(e)};e=null}return{done:!0,value:void 0}})}function h(a,d){var e=d&&typeof d;e=="object"||e=="function"?m.has(d)?e=m.get(d):(e=""+ ++f,m.set(d,e)):e="p_"+d;var k=a[0][e];if(k&&K(a[0],e))for(a=0;a<k.length;a++){var p=k[a];if(d!==d&&p.key!==p.key||d===p.key)return{id:e,list:k,index:a,entry:p}}return{id:e,
+list:k,index:-1,entry:void 0}}function l(a){this[0]={};this[1]=c();this.size=0;if(a){a=t(a);for(var d;!(d=a.next()).done;)d=d.value,this.set(d[0],d[1])}}if(function(){if(!b||typeof b!="function"||!b.prototype.entries||typeof Object.seal!="function")return!1;try{var a=Object.seal({x:4}),d=new b(t([[a,"s"]]));if(d.get(a)!="s"||d.size!=1||d.get({x:4})||d.set({x:4},"t")!=d||d.size!=2)return!1;var e=d.entries(),k=e.next();if(k.done||k.value[0]!=a||k.value[1]!="s")return!1;k=e.next();return k.done||k.value[0].x!=
+4||k.value[1]!="t"||!e.next().done?!1:!0}catch(p){return!1}}())return b;var m=new WeakMap;l.prototype.set=function(a,d){a=a===0?0:a;var e=h(this,a);e.list||(e.list=this[0][e.id]=[]);e.entry?e.entry.value=d:(e.entry={next:this[1],m:this[1].m,head:this[1],key:a,value:d},e.list.push(e.entry),this[1].m.next=e.entry,this[1].m=e.entry,this.size++);return this};l.prototype.delete=function(a){a=h(this,a);return a.entry&&a.list?(a.list.splice(a.index,1),a.list.length||delete this[0][a.id],a.entry.m.next=a.entry.next,
+a.entry.next.m=a.entry.m,a.entry.head=null,this.size--,!0):!1};l.prototype.clear=function(){this[0]={};this[1]=this[1].m=c();this.size=0};l.prototype.has=function(a){return!!h(this,a).entry};l.prototype.get=function(a){return(a=h(this,a).entry)&&a.value};l.prototype.entries=function(){return g(this,function(a){return[a.key,a.value]})};l.prototype.keys=function(){return g(this,function(a){return a.key})};l.prototype.values=function(){return g(this,function(a){return a.value})};l.prototype.forEach=
+function(a,d){for(var e=this.entries(),k;!(k=e.next()).done;)k=k.value,a.call(d,k[1],k[0],this)};l.prototype[Symbol.iterator]=l.prototype.entries;var f=0;return l});
+x("Set",function(b){function c(g){this.g=new Map;if(g){g=t(g);for(var h;!(h=g.next()).done;)this.add(h.value)}this.size=this.g.size}if(function(){if(!b||typeof b!="function"||!b.prototype.entries||typeof Object.seal!="function")return!1;try{var g=Object.seal({x:4}),h=new b(t([g]));if(!h.has(g)||h.size!=1||h.add(g)!=h||h.size!=1||h.add({x:4})!=h||h.size!=2)return!1;var l=h.entries(),m=l.next();if(m.done||m.value[0]!=g||m.value[1]!=g)return!1;m=l.next();return m.done||m.value[0]==g||m.value[0].x!=4||
+m.value[1]!=m.value[0]?!1:l.next().done}catch(f){return!1}}())return b;c.prototype.add=function(g){g=g===0?0:g;this.g.set(g,g);this.size=this.g.size;return this};c.prototype.delete=function(g){g=this.g.delete(g);this.size=this.g.size;return g};c.prototype.clear=function(){this.g.clear();this.size=0};c.prototype.has=function(g){return this.g.has(g)};c.prototype.entries=function(){return this.g.entries()};c.prototype.values=function(){return this.g.values()};c.prototype.keys=c.prototype.values;c.prototype[Symbol.iterator]=
+c.prototype.values;c.prototype.forEach=function(g,h){var l=this;this.g.forEach(function(m){return g.call(h,m,m,l)})};return c});(function(){function b(){return m?Promise.resolve(m):f?f:f=fetch("https://www.gstatic.com/bard-maui/resources/material-design-icon-names.804824289.json").then(function(a){if(!a.ok)throw Error("HTTP error! status: "+a.status+" fetching https://www.gstatic.com/bard-maui/resources/material-design-icon-names.804824289.json");return a.json()}).then(function(a){if(!Array.isArray(a))throw new TypeError("Fetched icon names from https://www.gstatic.com/bard-maui/resources/material-design-icon-names.804824289.json is not an array.");
+return m=a}).catch(function(a){console.error("IconChecker: Failed to load valid icon names from https://www.gstatic.com/bard-maui/resources/material-design-icon-names.804824289.json.",a);f=null;throw a;})}function c(a){var d,e,k,p;return I(new H(new B(function(n){switch(n.h){case 1:d=(a.textContent||"").trim();if(!d||a.classList.contains("js-replaced-missing-icon")&&d==="radio_button_unchecked")return n.return();e=window.getComputedStyle(a);if(e.display==="none"||e.visibility==="hidden")return n.return();
+n.l=2;var r=b();n.h=4;return{value:r};case 4:k=n.u;n.h=3;n.l=0;break;case 2:return n.l=0,n.i=null,console.warn('IconChecker: Skipping check for icon "'+d+'" as valid names could not be loaded.'),n.return();case 3:(p=k.includes(d))?a.classList.contains("js-replaced-missing-icon")&&a.classList.remove("js-replaced-missing-icon"):d==="radio_button_unchecked"&&a.classList.contains("js-replaced-missing-icon")||(a.textContent="radio_button_unchecked",a.classList.add("js-replaced-missing-icon")),n.h=0}})))}
+function g(a){a=a===void 0?document.body:a;a.querySelectorAll(l).forEach(function(d){c(d)})}function h(){b().catch(function(){});document.fonts.ready.then(function(){requestAnimationFrame(function(){g(document.body);(new MutationObserver(function(a){var d=new Set;a=t(a);for(var e=a.next();!e.done;e=a.next())if(e=e.value,e.type==="childList")e.addedNodes.forEach(function(p){p.nodeType===Node.ELEMENT_NODE&&(p.matches(l)&&d.add(p),p.querySelectorAll(l).forEach(function(n){d.add(n)}))});else if(e.type===
+"attributes"&&e.attributeName==="class"){var k=e.target;e.target.nodeType===Node.ELEMENT_NODE&&k.matches(l)&&d.add(k)}else e.type==="characterData"&&e.target.parentNode&&(e=e.target.parentNode,e.nodeType===Node.ELEMENT_NODE&&e.matches(l)&&d.add(e));d.size>0&&setTimeout(function(){d.forEach(function(p){c(p)})},500)})).observe(document.body,{childList:!0,subtree:!0,attributes:!0,attributeFilter:["class"],characterData:!0})})}).catch(function(a){console.error("IconChecker: Font loading error. Scanning icons anyway.",
+a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons","material-symbols-outlined","material-symbols-rounded","material-symbols-sharp"].map(function(a){return"."+a}).join(","),m=null,f=null;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",function(){h()}):h()})();}).call(this);
+
+</script>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-DOF 四足機器狗模擬器 - 教學版</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a; /* Slate 900 */
+            color: #e2e8f0; /* Slate 200 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            touch-action: none; /* Prevent browser zooming on mobile */
+        }
+        canvas {
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            cursor: move;
+        }
+        .control-btn {
+            transition: all 0.1s;
+        }
+        .control-btn:active, .control-btn.active {
+            transform: scale(0.95);
+            background-color: #3b82f6;
+            box-shadow: 0 0 10px #3b82f6;
+        }
+        /* Custom scrollbar */
+        .scroller::-webkit-scrollbar {
+            width: 6px;
+        }
+        .scroller::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        .scroller::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 3px;
+        }
+        .motor-bar-fill {
+            transition: width 0.05s linear;
+        }
+        /* Range Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+            margin-top: -6px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #475569;
+            border-radius: 2px;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.absolute{position:absolute}.relative{position:relative}.bottom-6{bottom:1.5rem}.left-0{left:0px}.left-4{left:1rem}.right-6{right:1.5rem}.top-0{top:0px}.top-4{top:1rem}.z-10{z-index:10}.z-20{z-index:20}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.block{display:block}.flex{display:flex}.grid{display:grid}.h-12{height:3rem}.h-2{height:0.5rem}.h-\[40vh\]{height:40vh}.h-\[60vh\]{height:60vh}.h-full{height:100%}.h-screen{height:100vh}.h-1\.5{height:0.375rem}.w-12{width:3rem}.w-2{width:0.5rem}.w-full{width:100%}.w-1\/2{width:50%}.w-8{width:2rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246 / var(--tw-border-opacity, 1))}.border-slate-400{--tw-border-opacity:1;border-color:rgb(148 163 184 / var(--tw-border-opacity, 1))}.border-slate-500{--tw-border-opacity:1;border-color:rgb(100 116 139 / var(--tw-border-opacity, 1))}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105 / var(--tw-border-opacity, 1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-slate-600{--tw-bg-opacity:1;background-color:rgb(71 85 105 / var(--tw-bg-opacity, 1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.bg-slate-700\/50{background-color:rgb(51 65 85 / 0.5)}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.bg-slate-800\/80{background-color:rgb(30 41 59 / 0.8)}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/50{background-color:rgb(15 23 42 / 0.5)}.bg-slate-900\/80{background-color:rgb(15 23 42 / 0.8)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-yellow-500{--tw-bg-opacity:1;background-color:rgb(234 179 8 / var(--tw-bg-opacity, 1))}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.text-right{text-align:right}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-\[10px\]{font-size:10px}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-normal{font-weight:400}.uppercase{text-transform:uppercase}.normal-case{text-transform:none}.italic{font-style:italic}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-blue-400{--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_0_5px_rgba\(34\2c 197\2c 94\2c 0\.8\)\]{--tw-shadow:0 0 5px rgba(34,197,94,0.8);--tw-shadow-colored:0 0 5px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-blue-500:hover{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-500:hover{--tw-bg-opacity:1;background-color:rgb(100 116 139 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-600:hover{--tw-bg-opacity:1;background-color:rgb(71 85 105 / var(--tw-bg-opacity, 1))}@media (min-width: 768px){.md\:h-full{height:100%}.md\:w-80{width:20rem}.md\:flex-row{flex-direction:row}}</style></head>
+<body class="h-screen flex flex-col md:flex-row">
+
+    <!-- Sidebar / Control Panel -->
+    <div class="w-full md:w-80 flex-shrink-0 bg-slate-800 border-r border-slate-700 flex flex-col h-[40vh] md:h-full z-10 shadow-xl">
+        <div class="p-4 border-b border-slate-700 bg-slate-900">
+            <h1 class="text-xl font-bold text-blue-400 flex items-center gap-2">
+                <span class="material-symbols-outlined">smart_toy</span>
+                四足機器狗教學
+            </h1>
+            <p class="text-xs text-slate-400 mt-1">12自由度 (12-DOF) Kinematics</p>
+        </div>
+
+        <div class="flex-1 overflow-y-auto scroller p-4 space-y-6">
+            
+            <!-- Settings Section -->
+            <div class="bg-slate-700/50 rounded-lg p-3 border border-slate-600">
+                <h2 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">tune</span> 參數設定
+                </h2>
+                
+                <!-- Speed Control -->
+                <div class="mb-4">
+                    <div class="flex justify-between text-xs text-slate-300 mb-1">
+                        <span>模擬速度 (Speed)</span>
+                        <span id="speed-display" class="font-mono text-blue-300">1.0x</span>
+                    </div>
+                    <input type="range" id="speed-slider" min="0.05" max="2.0" step="0.05" value="0.5">
+                    <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                        <span>慢動作</span>
+                        <span>極速</span>
+                    </div>
+                </div>
+
+                <!-- Gait Select -->
+                <div class="mb-2">
+                    <label class="block text-xs text-slate-300 mb-1">步態模式 (Gait)</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button class="gait-btn active bg-blue-600 text-white text-xs py-1.5 px-2 rounded border border-blue-500 hover:bg-blue-500 transition-colors" data-gait="trot">
+                            Trot (小跑)
+                        </button>
+                        <button class="gait-btn bg-slate-600 text-slate-300 text-xs py-1.5 px-2 rounded border border-slate-500 hover:bg-slate-500 transition-colors" data-gait="walk">
+                            Walk (慢走)
+                        </button>
+                        <button class="gait-btn bg-slate-600 text-slate-300 text-xs py-1.5 px-2 rounded border border-slate-500 hover:bg-slate-500 transition-colors" data-gait="pace">
+                            Pace (側對步)
+                        </button>
+                        <button class="gait-btn bg-slate-600 text-slate-300 text-xs py-1.5 px-2 rounded border border-slate-500 hover:bg-slate-500 transition-colors" data-gait="bound">
+                            Bound (跳躍)
+                        </button>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-2 italic" id="gait-desc">
+                        Trot: 對角線腳成對移動，最常見且穩定的快速步態。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Motor Monitor -->
+            <div>
+                <h3 class="text-xs uppercase font-bold text-slate-500 mb-2 flex justify-between">
+                    <span>即時馬達角度</span>
+                    <span class="text-[10px] font-normal normal-case text-slate-400">紅色=馬達位置</span>
+                </h3>
+                <!-- Dynamic Motor Bars Generation Target -->
+                <div id="motor-bars-container" class="space-y-3">
+                <div class="mb-3">
+                    <div class="flex justify-between text-xs mb-1 text-slate-300"><span>左前 (FL)</span></div>
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Hip</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-blue-500 w-1/2 motor-bar-fill" id="m-FL-1" style="width: 37.5%;"></div></div></div>
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Up</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-green-500 w-1/2 motor-bar-fill" id="m-FL-2" style="width: 61.1367%;"></div></div></div>
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Low</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-yellow-500 w-1/2 motor-bar-fill" id="m-FL-3" style="width: 46.0107%;"></div></div></div>
+                    </div>
+                </div>
+            
+                <div class="mb-3">
+                    <div class="flex justify-between text-xs mb-1 text-slate-300"><span>右前 (FR)</span></div>
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Hip</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-blue-500 w-1/2 motor-bar-fill" id="m-FR-1" style="width: 62.5%;"></div></div></div>
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Up</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-green-500 w-1/2 motor-bar-fill" id="m-FR-2" style="width: 61.1367%;"></div></div></div>
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Low</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-yellow-500 w-1/2 motor-bar-fill" id="m-FR-3" style="width: 46.0107%;"></div></div></div>
+                    </div>
+                </div>
+            
+                <div class="mb-3">
+                    <div class="flex justify-between text-xs mb-1 text-slate-300"><span>左後 (RL)</span></div>
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Hip</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-blue-500 w-1/2 motor-bar-fill" id="m-RL-1" style="width: 37.5%;"></div></div></div>
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Up</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-green-500 w-1/2 motor-bar-fill" id="m-RL-2" style="width: 61.1367%;"></div></div></div>
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Low</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-yellow-500 w-1/2 motor-bar-fill" id="m-RL-3" style="width: 46.0107%;"></div></div></div>
+                    </div>
+                </div>
+            
+                <div class="mb-3">
+                    <div class="flex justify-between text-xs mb-1 text-slate-300"><span>右後 (RR)</span></div>
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Hip</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-blue-500 w-1/2 motor-bar-fill" id="m-RR-1" style="width: 62.5%;"></div></div></div>
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Up</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-green-500 w-1/2 motor-bar-fill" id="m-RR-2" style="width: 61.1367%;"></div></div></div>
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Low</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-yellow-500 w-1/2 motor-bar-fill" id="m-RR-3" style="width: 46.0107%;"></div></div></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main View Area -->
+    <div class="flex-1 relative h-[60vh] md:h-full flex flex-col bg-black">
+        <!-- Canvas Layer -->
+        <canvas class="absolute top-0 left-0 w-full h-full block" id="simCanvas" width="844" height="451"></canvas>
+        
+        <!-- Legend / Info Overlay -->
+        <div class="absolute top-4 left-4 pointer-events-none">
+            <div class="bg-slate-900/80 p-3 rounded backdrop-blur text-xs border border-slate-700">
+                <div class="flex items-center gap-2 mb-1">
+                    <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_5px_rgba(34,197,94,0.8)]"></div>
+                    <span class="text-slate-200">著地 (Stance) - 提供推力</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 rounded-full bg-white border border-slate-400"></div>
+                    <span class="text-slate-200">抬起 (Swing) - 重新定位</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Touch Controls -->
+        <div class="absolute bottom-6 right-6 flex flex-col items-center gap-3 z-20">
+            <!-- D-Pad -->
+            <div class="grid grid-cols-3 gap-2 bg-slate-800/80 p-4 rounded-xl backdrop-blur-sm border border-slate-600 shadow-2xl">
+                <div></div>
+                <button class="control-btn w-12 h-12 rounded-lg bg-slate-700 text-white flex items-center justify-center hover:bg-slate-600 border border-slate-500" id="btn-fwd">
+                    <span class="material-symbols-outlined">arrow_upward</span>
+                </button>
+                <div></div>
+                <button class="control-btn w-12 h-12 rounded-lg bg-slate-700 text-white flex items-center justify-center hover:bg-slate-600 border border-slate-500" id="btn-left">
+                    <span class="material-symbols-outlined">rotate_left</span>
+                </button>
+                <button class="control-btn w-12 h-12 rounded-lg bg-slate-700 text-white flex items-center justify-center hover:bg-slate-600 border border-slate-500" id="btn-back">
+                    <span class="material-symbols-outlined">arrow_downward</span>
+                </button>
+                <button class="control-btn w-12 h-12 rounded-lg bg-slate-700 text-white flex items-center justify-center hover:bg-slate-600 border border-slate-500" id="btn-right">
+                    <span class="material-symbols-outlined">rotate_right</span>
+                </button>
+            </div>
+            <div class="text-xs text-slate-400 bg-slate-900/50 px-2 py-1 rounded select-none">
+                鍵盤 WASD 控制 • 拖曳旋轉視角
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * 12-DOF Quadruped Robot Simulator (Educational Version)
+         */
+
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // --- Configuration & State ---
+        
+        const CONFIG = {
+            bodyLength: 120,
+            bodyWidth: 80,
+            coxaLen: 25,
+            femurLen: 60,
+            tibiaLen: 60,
+            defaultHeight: 90,
+            baseStride: 40,
+            liftHeight: 30
+        };
+
+        const STATE = {
+            width: 0,
+            height: 0,
+            
+            // Camera
+            camPitch: -0.5,
+            camYaw: 0.8,
+            zoom: 1.0,
+            
+            // Robot World Pos
+            posX: 0,
+            posZ: 0,
+            heading: 0,
+
+            // Control
+            inputX: 0, // Turning
+            inputZ: 0, // Forward/Back
+            
+            // Simulation
+            time: 0,
+            simSpeedMultiplier: 0.5, // Controlled by slider
+            baseSpeed: 0.2,          // Constant
+            
+            // Gait
+            currentGait: 'trot'
+        };
+
+        // Gait Definitions
+        // Phase: 0-1 offset in cycle
+        // Duty: Proportion of cycle spent on ground (0-1). Walk needs high duty.
+        const GAITS = {
+            trot: {
+                name: 'Trot',
+                desc: '對角線腳成對移動，最常見且穩定的快速步態。',
+                offsets: [0, 0.5, 0.5, 0], // FL, FR, RL, RR
+                duty: 0.5, // 50% on ground, 50% in air
+                periodScale: 1.0
+            },
+            walk: {
+                name: 'Walk',
+                desc: '一次只移動一隻腳，保持三點著地，極度穩定。',
+                // Sequence: RR -> FR -> RL -> FL (Standard Creep)
+                // Cycle: 0-1. 
+                // RR lifts at 0, FR at 0.25, RL at 0.5, FL at 0.75
+                offsets: [0.75, 0.25, 0.5, 0], 
+                duty: 0.75, // 75% on ground
+                periodScale: 0.6 // Walk is slower
+            },
+            pace: {
+                name: 'Pace',
+                desc: '同側的腳一起移動。側向穩定性較差，容易左右搖晃。',
+                offsets: [0, 0.5, 0, 0.5], // Left side, Right side
+                duty: 0.5,
+                periodScale: 1.0
+            },
+            bound: {
+                name: 'Bound',
+                desc: '前兩腳與後兩腳交替跳躍。適合高速奔跑。',
+                offsets: [0, 0, 0.5, 0.5], // Front pair, Rear pair
+                duty: 0.4, // More time in air
+                periodScale: 1.2
+            }
+        };
+
+        const keys = {};
+
+        // --- Init Helpers ---
+
+        function initMotorUI() {
+            const container = document.getElementById('motor-bars-container');
+            const legs = [
+                {id: 'FL', label: '左前 (FL)'},
+                {id: 'FR', label: '右前 (FR)'},
+                {id: 'RL', label: '左後 (RL)'},
+                {id: 'RR', label: '右後 (RR)'}
+            ];
+
+            container.innerHTML = legs.map(leg => `
+                <div class="mb-3">
+                    <div class="flex justify-between text-xs mb-1 text-slate-300"><span>${leg.label}</span></div>
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Hip</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-blue-500 w-1/2 motor-bar-fill" id="m-${leg.id}-1"></div></div></div>
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Up</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-green-500 w-1/2 motor-bar-fill" id="m-${leg.id}-2"></div></div></div>
+                        <div class="flex items-center gap-2"><span class="text-[10px] w-8 text-right text-slate-500">Low</span><div class="h-1.5 flex-1 bg-slate-900 rounded overflow-hidden border border-slate-700"><div class="h-full bg-yellow-500 w-1/2 motor-bar-fill" id="m-${leg.id}-3"></div></div></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function resize() {
+            STATE.width = canvas.parentElement.clientWidth;
+            STATE.height = canvas.parentElement.clientHeight;
+            canvas.width = STATE.width;
+            canvas.height = STATE.height;
+        }
+
+        // --- Math & Kinematics ---
+
+        function rotateY(x, z, angle) {
+            const cos = Math.cos(angle);
+            const sin = Math.sin(angle);
+            return { x: x * cos - z * sin, z: x * sin + z * cos };
+        }
+
+        function project(x, y, z) {
+            // Camera Orbit
+            let p = rotateY(x, z, -STATE.camYaw);
+            let rx = p.x;
+            let rz = p.z;
+            let ry = y;
+
+            // Simple Pitch
+            const cosP = Math.cos(STATE.camPitch);
+            const sinP = Math.sin(STATE.camPitch);
+            let ry2 = ry * cosP - rz * sinP;
+            let rz2 = ry * sinP + rz * cosP;
+
+            const fov = 700 * STATE.zoom;
+            const distance = 1000;
+            const scale = fov / (distance + rz2);
+
+            return {
+                x: STATE.width / 2 + rx * scale,
+                y: STATE.height / 2 - ry2 * scale,
+                scale: scale,
+                visible: (distance + rz2) > 0,
+                depth: rz2 // For Z-sorting if needed
+            };
+        }
+
+        // Inverse Kinematics for a generic 3-link leg
+        // Returns normalized servo values (0-1) for UI visualization
+        function solveIK(x, y, z) {
+            // Simplified IK for visualization
+            // x: Lateral, y: Vertical, z: Forward
+            
+            // 1. Hip Angle (Lateral) - Not fully calculated physically to keep sim simple
+            let t1 = 0.5 + (x * 0.005); 
+
+            // 2. Leg Plane IK (Femur + Tibia)
+            const L1 = CONFIG.femurLen;
+            const L2 = CONFIG.tibiaLen;
+            // Distance from hip pivot to target
+            const r = Math.sqrt(z*z + y*y);
+            
+            // Constrain r to reach limit
+            const rClamped = Math.min(r, L1 + L2 - 0.1);
+
+            // Law of Cosines
+            // Alpha: Angle at knee
+            let alpha = Math.acos((L1*L1 + L2*L2 - rClamped*rClamped) / (2*L1*L2));
+            let t3 = Math.PI - alpha; // Knee bend
+
+            // Beta: Angle of vector r from vertical
+            let beta = Math.atan2(z, Math.abs(y)); 
+            
+            // Gamma: Angle inside triangle at hip
+            let gamma = Math.acos((L1*L1 + rClamped*rClamped - L2*L2) / (2*L1*rClamped));
+            
+            let t2 = beta + gamma; // Thigh angle
+
+            // Normalize for UI bars
+            return {
+                rawT1: t1,
+                rawT2: t2,
+                rawT3: t3,
+                p1: Math.min(100, Math.max(0, t1 * 100)),
+                p2: Math.min(100, Math.max(0, (t2 + 0.5) * 50)),
+                p3: Math.min(100, Math.max(0, (t3 / Math.PI) * 100))
+            };
+        }
+
+        // --- Robot Logic ---
+
+        class Robot {
+            constructor() {
+                const lx = CONFIG.bodyWidth / 2;
+                const lz = CONFIG.bodyLength / 2;
+                // Leg Order: FL, FR, RL, RR
+                this.legs = [
+                    { id: 'FL', x: -lx, z: lz,  sign: -1, name: 'FL' },
+                    { id: 'FR', x: lx,  z: lz,  sign: 1,  name: 'FR' },
+                    { id: 'RL', x: -lx, z: -lz, sign: -1, name: 'RL' },
+                    { id: 'RR', x: lx,  z: -lz, sign: 1,  name: 'RR' }
+                ];
+                
+                this.footPos = this.legs.map(l => ({ 
+                    x: l.x + (l.sign * CONFIG.coxaLen), 
+                    y: -CONFIG.defaultHeight, 
+                    z: l.z,
+                    isGrounded: true
+                }));
+            }
+
+            update() {
+                // Inputs
+                let tvz = 0; // Target Velocity Z
+                let trot = 0; // Target Rotation
+
+                if (keys['ArrowUp'] || keys['w']) tvz = 1;
+                if (keys['ArrowDown'] || keys['s']) tvz = -1;
+                if (keys['ArrowLeft'] || keys['a']) trot = 1;
+                if (keys['ArrowRight'] || keys['d']) trot = -1;
+                
+                // Touch/Mouse UI override
+                if (STATE.inputZ !== 0) tvz = STATE.inputZ;
+                if (STATE.inputX !== 0) trot = STATE.inputX;
+
+                // Move Robot in World
+                STATE.heading += trot * 0.05 * STATE.simSpeedMultiplier;
+                const moveSpeed = CONFIG.baseStride * 0.1 * STATE.simSpeedMultiplier;
+                STATE.posX += Math.sin(STATE.heading) * tvz * moveSpeed;
+                STATE.posZ += Math.cos(STATE.heading) * tvz * moveSpeed;
+
+                // Gait Logic
+                const gait = GAITS[STATE.currentGait];
+                const isMoving = (tvz !== 0 || trot !== 0);
+                
+                if (isMoving) {
+                    STATE.time += STATE.baseSpeed * STATE.simSpeedMultiplier * gait.periodScale;
+                } else {
+                    // Snap to neutral when stopped
+                    STATE.time = Math.round(STATE.time / (Math.PI*2)) * (Math.PI*2);
+                }
+
+                this.legs.forEach((leg, i) => {
+                    // Base position (Body Local)
+                    const bx = leg.x + (leg.sign * CONFIG.coxaLen);
+                    const by = -CONFIG.defaultHeight;
+                    const bz = leg.z;
+
+                    // Gait Phase Calculation
+                    // Cycle is 0 to 1
+                    const rawPhase = (STATE.time / (Math.PI * 2)) + gait.offsets[i];
+                    const cyclePhase = rawPhase % 1; // Wrap 0-1
+
+                    let dx = 0; // Lateral shift
+                    let dy = 0; // Vertical lift
+                    let dz = 0; // Forward stride
+
+                    if (isMoving) {
+                        // Determine Swing vs Stance
+                        // Stance phase is from 0 to gait.duty
+                        // Swing phase is from gait.duty to 1
+                        
+                        // We want the leg to move BACKWARDS during Stance (propelling body forward)
+                        // And move FORWARDS during Swing
+                        
+                        if (cyclePhase < gait.duty) {
+                            // --- Stance Phase (On Ground) ---
+                            this.footPos[i].isGrounded = true;
+                            
+                            // Map phase 0..duty to 0.5..-0.5 (Move back)
+                            const progress = cyclePhase / gait.duty; 
+                            const stridePos = 0.5 - progress; // 0.5 -> -0.5
+                            
+                            dz = stridePos * CONFIG.baseStride * tvz;
+                            // Simple turning logic: offset X based on Z position in turn
+                            dx = stridePos * (CONFIG.baseStride * 0.5) * trot * leg.sign;
+                            
+                            dy = 0;
+
+                        } else {
+                            // --- Swing Phase (In Air) ---
+                            this.footPos[i].isGrounded = false;
+                            
+                            // Map phase duty..1 to -0.5..0.5 (Move forward)
+                            const swingProgress = (cyclePhase - gait.duty) / (1 - gait.duty);
+                            const stridePos = -0.5 + swingProgress; // -0.5 -> 0.5
+                            
+                            dz = stridePos * CONFIG.baseStride * tvz;
+                            dx = stridePos * (CONFIG.baseStride * 0.5) * trot * leg.sign;
+                            
+                            // Parabolic lift
+                            // sin(0..PI)
+                            dy = Math.sin(swingProgress * Math.PI) * CONFIG.liftHeight;
+                        }
+                    } else {
+                        this.footPos[i].isGrounded = true;
+                    }
+
+                    // Apply to foot
+                    const tx = bx + dx;
+                    const ty = by + dy; // dy is positive up
+                    const tz = bz + dz;
+                    
+                    this.footPos[i].x = tx;
+                    this.footPos[i].y = ty;
+                    this.footPos[i].z = tz;
+
+                    // Update UI Bars
+                    // Rel to Hip
+                    const ik = solveIK(tx - leg.x, ty, tz - leg.z);
+                    document.getElementById(`m-${leg.id}-1`).style.width = `${ik.p1}%`;
+                    document.getElementById(`m-${leg.id}-2`).style.width = `${ik.p2}%`;
+                    document.getElementById(`m-${leg.id}-3`).style.width = `${ik.p3}%`;
+                });
+            }
+
+            draw() {
+                // Clear
+                ctx.clearRect(0, 0, STATE.width, STATE.height);
+
+                // --- 1. Draw Grid ---
+                ctx.strokeStyle = '#334155';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                const gridSize = 100;
+                const modX = STATE.posX % gridSize;
+                const modZ = STATE.posZ % gridSize;
+                
+                // Draw a 20x20 grid around the robot
+                for(let i = -10; i <= 10; i++) {
+                    const x = i * gridSize - modX;
+                    const p1 = project(x, -CONFIG.defaultHeight, -1500);
+                    const p2 = project(x, -CONFIG.defaultHeight, 1500);
+                    if(p1.visible || p2.visible) { ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); }
+                }
+                for(let i = -10; i <= 10; i++) {
+                    const z = i * gridSize - modZ;
+                    const p1 = project(-1500, -CONFIG.defaultHeight, z);
+                    const p2 = project(1500, -CONFIG.defaultHeight, z);
+                    if(p1.visible || p2.visible) { ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); }
+                }
+                ctx.stroke();
+
+                // --- 2. Draw Robot ---
+                // Sort primitives if we wanted perfect 3D, but wireframe is forgiving.
+                
+                // Body Bounce (visual effect)
+                const bounce = Math.abs(Math.sin(STATE.time * 2)) * 2;
+                const bodyY = bounce;
+
+                // Draw Legs
+                this.legs.forEach((leg, i) => {
+                    const foot = this.footPos[i];
+                    
+                    // Hip Joint World Pos
+                    const hipWorld = { x: leg.x, y: bodyY, z: leg.z };
+                    
+                    // IK Visualizer points
+                    // We need to visually reconstruction the knee based on the IK logic
+                    // This is "Fake IK" for rendering, matching the logic we used to solve angles
+                    const l1 = CONFIG.femurLen;
+                    const l2 = CONFIG.tibiaLen;
+                    // Simply interpolate for knee to look "okay"
+                    // A proper recreation would use the angles, but let's approximate:
+                    // Knee is usually above the line connecting hip and foot
+                    const midX = (hipWorld.x + foot.x)/2;
+                    const midZ = (hipWorld.z + foot.z)/2;
+                    const midY = (hipWorld.y + foot.y)/2 + 30; // Knee lift
+                    
+                    const p_hip = project(hipWorld.x, hipWorld.y, hipWorld.z);
+                    const p_knee = project(midX, midY, midZ);
+                    const p_foot = project(foot.x, foot.y, foot.z);
+
+                    // Leg Lines
+                    ctx.lineWidth = 4;
+                    ctx.lineCap = 'round';
+                    ctx.lineJoin = 'round';
+
+                    // Femur
+                    ctx.strokeStyle = '#60a5fa'; // Blue-400
+                    ctx.beginPath();
+                    ctx.moveTo(p_hip.x, p_hip.y);
+                    ctx.lineTo(p_knee.x, p_knee.y);
+                    ctx.stroke();
+
+                    // Tibia
+                    ctx.strokeStyle = '#fbbf24'; // Amber-400
+                    ctx.beginPath();
+                    ctx.moveTo(p_knee.x, p_knee.y);
+                    ctx.lineTo(p_foot.x, p_foot.y);
+                    ctx.stroke();
+
+                    // Motor Joints (Red Dots)
+                    ctx.fillStyle = '#ef4444'; 
+                    [p_hip, p_knee].forEach(p => {
+                        ctx.beginPath(); ctx.arc(p.x, p.y, 4 * p.scale, 0, Math.PI*2); ctx.fill();
+                    });
+
+                    // Foot visual
+                    ctx.beginPath();
+                    // Grounded = Green, Air = White
+                    ctx.fillStyle = foot.isGrounded ? '#22c55e' : '#ffffff';
+                    ctx.shadowColor = foot.isGrounded ? '#22c55e' : 'transparent';
+                    ctx.shadowBlur = foot.isGrounded ? 15 : 0;
+                    ctx.arc(p_foot.x, p_foot.y, 6 * p_foot.scale, 0, Math.PI*2);
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                });
+
+                // Body Chassis
+                const w = CONFIG.bodyWidth/2;
+                const l = CONFIG.bodyLength/2;
+                const corners = [
+                    {x: -w, z: l}, {x: w, z: l}, {x: w, z: -l}, {x: -w, z: -l}
+                ];
+                
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = '#94a3b8';
+                ctx.fillStyle = 'rgba(30, 41, 59, 0.9)';
+                
+                ctx.beginPath();
+                const pcs = corners.map(c => project(c.x, bodyY, c.z));
+                ctx.moveTo(pcs[0].x, pcs[0].y);
+                pcs.forEach(p => ctx.lineTo(p.x, p.y));
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+
+                // Head Direction
+                const head = project(0, bodyY, l + 25);
+                const neck = project(0, bodyY, l);
+                ctx.strokeStyle = '#10b981';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(neck.x, neck.y);
+                ctx.lineTo(head.x, head.y);
+                ctx.stroke();
+            }
+        }
+
+        // --- Init & Loop ---
+
+        initMotorUI();
+        resize();
+        window.addEventListener('resize', resize);
+        
+        const robot = new Robot();
+
+        // Mouse Drag for Camera
+        let isDragging = false;
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+
+        canvas.addEventListener('mousedown', e => { isDragging = true; lastMouseX = e.clientX; lastMouseY = e.clientY; });
+        window.addEventListener('mouseup', () => isDragging = false);
+        window.addEventListener('mousemove', e => {
+            if(!isDragging) return;
+            const dx = e.clientX - lastMouseX;
+            const dy = e.clientY - lastMouseY;
+            STATE.camYaw -= dx * 0.01;
+            STATE.camPitch = Math.max(-1.5, Math.min(0.5, STATE.camPitch + dy * 0.01));
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+        });
+        
+        // Touch Drag
+        canvas.addEventListener('touchstart', e => { 
+            isDragging = true; 
+            lastMouseX = e.touches[0].clientX; 
+            lastMouseY = e.touches[0].clientY; 
+        }, {passive: false});
+        canvas.addEventListener('touchmove', e => {
+            if(!isDragging) return;
+            e.preventDefault();
+            const dx = e.touches[0].clientX - lastMouseX;
+            const dy = e.touches[0].clientY - lastMouseY;
+            STATE.camYaw -= dx * 0.01;
+            STATE.camPitch += dy * 0.01;
+            lastMouseX = e.touches[0].clientX;
+            lastMouseY = e.touches[0].clientY;
+        }, {passive: false});
+
+
+        // Control Bindings
+        // Speed Slider
+        const speedSlider = document.getElementById('speed-slider');
+        const speedDisplay = document.getElementById('speed-display');
+        speedSlider.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value);
+            STATE.simSpeedMultiplier = val;
+            speedDisplay.innerText = val.toFixed(1) + 'x';
+        });
+
+        // Gait Buttons
+        const gaitBtns = document.querySelectorAll('.gait-btn');
+        const gaitDesc = document.getElementById('gait-desc');
+        gaitBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update UI
+                gaitBtns.forEach(b => {
+                    b.classList.remove('bg-blue-600', 'text-white', 'border-blue-500', 'active');
+                    b.classList.add('bg-slate-600', 'text-slate-300', 'border-slate-500');
+                });
+                btn.classList.remove('bg-slate-600', 'text-slate-300', 'border-slate-500');
+                btn.classList.add('bg-blue-600', 'text-white', 'border-blue-500', 'active');
+
+                // Update State
+                const gaitKey = btn.dataset.gait;
+                STATE.currentGait = gaitKey;
+                gaitDesc.innerText = GAITS[gaitKey].name + ": " + GAITS[gaitKey].desc;
+            });
+        });
+
+        // Direction Buttons
+        const btnMap = {
+            'btn-fwd': 'inputZ', 'btn-back': 'inputZ',
+            'btn-left': 'inputX', 'btn-right': 'inputX'
+        };
+        const valMap = {
+            'btn-fwd': 1, 'btn-back': -1,
+            'btn-left': 1, 'btn-right': -1
+        };
+        Object.keys(btnMap).forEach(id => {
+            const btn = document.getElementById(id);
+            const prop = btnMap[id];
+            const val = valMap[id];
+            const start = (e) => { e.preventDefault(); STATE[prop] = val; btn.classList.add('active'); };
+            const end = (e) => { e.preventDefault(); STATE[prop] = 0; btn.classList.remove('active'); };
+            btn.addEventListener('mousedown', start);
+            btn.addEventListener('mouseup', end);
+            btn.addEventListener('mouseleave', end);
+            btn.addEventListener('touchstart', start);
+            btn.addEventListener('touchend', end);
+        });
+        window.addEventListener('keydown', e => keys[e.key] = true);
+        window.addEventListener('keyup', e => keys[e.key] = false);
+
+        // Animation Loop
+        function loop() {
+            robot.update();
+            robot.draw();
+            requestAnimationFrame(loop);
+        }
+        loop();
+
+    </script>
+
+</body></html>
